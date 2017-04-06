@@ -1,4 +1,5 @@
 *.retry
+build
 provision/group_vars/all
 provision/inventory/localhost
 provision/site.yml
