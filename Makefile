@@ -10,13 +10,17 @@ provision: up
 
 up: setup
 	@sudo cbsd jcreate jconf=${PWD}/cbsd.conf || true
-	@sudo sh -c 'sed -e "s:PWD:${PWD}:g" -e "s:PROJECT:${PROJECT}:g" templates/fstab.conf.tpl >/cbsd/jails-fstab/fstab.${PROJECT}'
+.if !exists(/cbsd/jails-system/${PROJECT}/master_poststart.d/register.sh)
+	@sudo ln -s /usr/local/bin/cbsd-devops /cbsd/jails-system/${PROJECT}/master_poststart.d/register.sh
+.endif
+.if !exists(/cbsd/jails-system/${PROJECT}/master_poststop.d/deregister.sh)
+	@sudo ln -s /usr/local/bin/cbsd-devops /cbsd/jails-system/${PROJECT}/master_poststop.d/deregister.sh
+.endif
 	@sudo chown ${UID}:${GID} cbsd.conf
 	@sudo cbsd jstart ${PROJECT} || true
 
 down: setup
 	@sudo cbsd jstop ${PROJECT} || true
-	@sudo ansible-playbook -i provision/inventory/${INVENTORY} provision/teardown.yml
 
 destroy: down
 	@rm -f provision/inventory/${INVENTORY} provision/site.yml provision/group_vars/all cbsd.conf vars.mk

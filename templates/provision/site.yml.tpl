@@ -7,8 +7,3 @@
   roles:
     - common
     - nginx
-
-- name: PROJECT localhost provisioning
-  hosts: localhost
-  roles:
-    - localhost
