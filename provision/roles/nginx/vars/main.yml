@@ -1,3 +1,9 @@
 ---
 nginx_packages:
   - name: nginx
+
+nginx_consul_template_prefix: ldap
+
+nginx_consul_templates:
+  - destination: /tmp/consul-timestamp.log
+    filename: consul-timestamp.tpl
