@@ -11,10 +11,10 @@ provision: up
 up: setup
 	@sudo cbsd jcreate jconf=${PWD}/cbsd.conf || true
 .if !exists(/cbsd/jails-system/${PROJECT}/master_poststart.d/register.sh)
-	@sudo ln -s /usr/local/bin/cbsd-devops /cbsd/jails-system/${PROJECT}/master_poststart.d/register.sh
+	@sudo ln -s /usr/local/bin/reggae /cbsd/jails-system/${PROJECT}/master_poststart.d/register.sh
 .endif
 .if !exists(/cbsd/jails-system/${PROJECT}/master_poststop.d/deregister.sh)
-	@sudo ln -s /usr/local/bin/cbsd-devops /cbsd/jails-system/${PROJECT}/master_poststop.d/deregister.sh
+	@sudo ln -s /usr/local/bin/reggae /cbsd/jails-system/${PROJECT}/master_poststop.d/deregister.sh
 .endif
 	@sudo chown ${UID}:${GID} cbsd.conf
 	@sudo cbsd jstart ${PROJECT} || true

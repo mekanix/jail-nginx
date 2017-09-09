@@ -2,6 +2,6 @@
 template {
   source = "{{ consul_template_root }}/{{ nginx_consul_template_prefix }}/{{ item.filename }}"
   destination = "{{ item.destination }}"
-  command = "service consul-template restart"
+  command = "{{ item.command }}"
 }
 {% endfor %}
