@@ -1,6 +1,5 @@
 ---
 nginx_packages:
-  - name: mailman
   - name: nginx
 
 nginx_consul_template_prefix: nginx
