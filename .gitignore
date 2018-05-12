@@ -3,7 +3,8 @@
 playbook/group_vars/all
 playbook/inventory/inventory
 playbook/site.yml
-playbook/roles/onelove-roles.freebsd-common/
-playbook/roles/onelove-roles.freebsd-consul-template/
+playbook/roles/*
+!playbook/roles/.keep
+build/
 cbsd.conf
 vars.mk

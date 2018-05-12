@@ -7,4 +7,4 @@
   roles:
     - onelove-roles.freebsd-common
     - onelove-roles.freebsd-consul-template
-    - nginx
+    - onelove-roles.freebsd-nginx
