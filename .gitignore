@@ -1,10 +1,10 @@
 .provisioned
 *.retry
-playbook/group_vars/all
-playbook/inventory/inventory
-playbook/site.yml
-playbook/roles/*
-!playbook/roles/.keep
+ansible/group_vars/all
+ansible/inventory/inventory
+ansible/site.yml
+ansible/roles/*
+!ansible/roles/.keep
 build/
 cbsd.conf
 vars.mk
