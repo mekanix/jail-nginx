@@ -1,10 +1,13 @@
-.provisioned
 *.retry
+.provisioned
+
 ansible/group_vars/all
 ansible/inventory/inventory
-ansible/site.yml
 ansible/roles/*
+ansible/site.yml
 !ansible/roles/.keep
+
 build/
 cbsd.conf
+templates/fstab
 vars.mk
