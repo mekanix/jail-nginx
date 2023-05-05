@@ -8,4 +8,3 @@ post_setup_ansible:
 	@echo "nginx_domain: ${FQDN}" >>ansible/group_vars/all
 
 .include <${REGGAE_PATH}/mk/service.mk>
-
